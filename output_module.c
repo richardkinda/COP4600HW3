@@ -2,6 +2,7 @@
 // Christopher Padilla, Richard Tsai, Matthew Winchester
 // output_module.c
 
+#include <linux/mutex.h>
 #include <linux/init.h>
 #include <linux/module.h>
 #include <linux/device.h>
@@ -9,7 +10,6 @@
 #include <linux/fs.h>
 #include <linux/vmalloc.h>
 #include <asm/uaccess.h>
-#include <linux/mutex.h>
 #define DEVICE_NAME "output_module"
 #define CLASS_NAME "output"
 #define BUFF_LEN 2048
@@ -39,8 +39,7 @@ static int numberOpens = 0;
 static struct class* charClass = NULL;
 static struct device* charDevice = NULL;
 
-extern char * temp;
-EXPORT_SYMBOL(temp);
+static char * temp;
 
 static int __init char_init(void)
 {

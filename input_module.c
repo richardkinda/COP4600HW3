@@ -14,9 +14,9 @@
 #define CLASS_NAME "input"
 #define BUFF_LEN 2048
 
-extern char * fifo_buffer_ptr;
+static char * fifo_buffer_ptr;
 EXPORT_SYMBOL(fifo_buffer_ptr);
-extern short fifo_buffer_size;
+static short fifo_buffer_size;
 EXPORT_SYMBOL(fifo_buffer_size);
 
 MODULE_LICENSE("GPL");
